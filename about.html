@@ -26,6 +26,14 @@
   }
   .license-banner .ico { width: 50px; height: 50px; border-radius: 12px; background: var(--navy); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
   .license-banner .ico svg { width: 26px; height: 26px; stroke: var(--cyan); }
+
+  @media (max-width: 760px) {
+    .tile-grid { grid-template-columns: 1fr !important; }
+    .license-banner { flex-wrap: wrap; }
+  }
+  @media (min-width: 761px) and (max-width: 980px) {
+    .tile-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  }
 </style>
 </head>
 <body>

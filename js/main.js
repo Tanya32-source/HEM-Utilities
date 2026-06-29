@@ -31,10 +31,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Mobile nav toggle ----
   const navToggle = document.querySelector('.nav-toggle');
   const mainNav = document.querySelector('.main-nav');
+  const toggleMenu = (open) => {
+    if (!navToggle || !mainNav) return;
+    navToggle.classList.toggle('open', open);
+    mainNav.classList.toggle('open', open);
+    document.body.classList.toggle('menu-open', open);
+  };
+
   if (navToggle && mainNav) {
     navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('open');
-      mainNav.classList.toggle('open');
+      const isOpen = mainNav.classList.contains('open');
+      toggleMenu(!isOpen);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') toggleMenu(false);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) toggleMenu(false);
     });
   }
 

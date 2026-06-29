@@ -21,6 +21,10 @@
   .factor-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
   .factor-item .num { font-family: var(--font-display); font-weight: 700; color: var(--cobalt); font-size: 15px; flex-shrink:0; }
   .factor-item p { font-size: 14.5px; color: var(--graphite); margin:0; }
+
+  @media (max-width: 600px) {
+    .factor-list { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>

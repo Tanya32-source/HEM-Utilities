@@ -48,6 +48,17 @@ console.log("Contact script loaded");
     outline: none; border-color: var(--cobalt); box-shadow: 0 0 0 4px rgba(30,111,224,0.1); background: white;
   }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  @media (max-width: 980px) {
+    .contact-wrap { grid-template-columns: 1fr; gap: 36px; }
+    .map-frame { min-height: 320px; }
+  }
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    .form-card { padding: 26px 22px; }
+    .office-card { padding: 20px; }
+    .contact-row { flex-wrap: wrap; }
+  }
 </style>
 </head>
 <body>
@@ -238,10 +249,13 @@ console.log("Contact script loaded");
 </footer>
 
 <button class="to-top" aria-label="Back to top"><svg viewBox="0 0 16 16" fill="none"><path d="M8 13V3M3 7l5-5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+
 <script>
+  console.log("Script Loaded");
 const API = "https://hem-utilities-backend.onrender.com";
 
 document.getElementById("contactForm").addEventListener("submit", async function (e) {
+  console.log("Form Submitted");
     e.preventDefault();
 
     const formData = {
