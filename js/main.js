@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Dropdown nav items (click-to-toggle on touch/mobile, hover on desktop handled by CSS) ----
   document.querySelectorAll('.nav-item.has-dropdown > .nav-link').forEach(link => {
     link.addEventListener('click', (e) => {
-      if (window.innerWidth <= 760) {
+      if (window.innerWidth <= 900) {
         e.preventDefault();
         const item = link.closest('.nav-item');
         document.querySelectorAll('.nav-item.open').forEach(other => {
@@ -70,9 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // close mobile nav when a real link inside dropdown is clicked
   document.querySelectorAll('.dropdown a, .nav-link[href]:not([href="#"])').forEach(a => {
     a.addEventListener('click', () => {
-      if (window.innerWidth <= 760) {
+      if (window.innerWidth <= 900) {
         mainNav?.classList.remove('open');
         navToggle?.classList.remove('open');
+        document.body.classList.remove('menu-open');
       }
     });
   });
